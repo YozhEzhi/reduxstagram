@@ -18,18 +18,24 @@ module.exports = {
   ],
   module: {
     loaders: [
-    // js
-    {
-      test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, 'client')
-    },
-    // CSS
-    { 
-      test: /\.styl$/, 
-      include: path.join(__dirname, 'client'),
-      loader: 'style-loader!css-loader!stylus-loader'
-    }
+      // js
+      {
+        test: /\.js$/,
+        loader: ['babel'],
+        include: path.join(__dirname, 'client'),
+        query: {
+          presets: ['react'],
+        },
+      },
+      // CSS
+      {
+        test: /\.styl$/,
+        include: path.join(__dirname, 'client'),
+        loader: 'style-loader!css-loader!stylus-loader'
+      }
     ]
-  }
+  },
+  query: {
+    presets: ['es2015', 'react'],
+  },
 };
