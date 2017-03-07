@@ -1,6 +1,6 @@
 function posts(state = [], action) {
-	console.log(state, action);
-	return state;
+  console.log(state, action);
+  return state;
 }
 
-export defaul posts;
+export default posts;
