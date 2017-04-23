@@ -8,24 +8,22 @@ module.exports = {
     './client/reduxstagram'
   ],
   output: {
-    path: path.join(__dirname, 'docs'),
+    path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/docs/'
+    publicPath: '/build/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
     loaders: [
       // js
       {
         test: /\.js$/,
-        loader: ['babel'],
         include: path.join(__dirname, 'client'),
-        query: {
-          presets: ['react'],
-        },
+        exclude: /node_modules/,
+        use: ['babel-loader'],
       },
       // CSS
       {
@@ -34,8 +32,5 @@ module.exports = {
         loader: 'style-loader!css-loader!stylus-loader'
       }
     ]
-  },
-  query: {
-    presets: ['es2015', 'react'],
   },
 };

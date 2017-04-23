@@ -3,7 +3,6 @@ import { INCREMENT_LIKES } from '../constants';
 function posts(state = [], action) {
   switch(action.type) {
     case INCREMENT_LIKES:
-      console.log('Incrementing Likes!');
       const i = action.index;
 
       return [

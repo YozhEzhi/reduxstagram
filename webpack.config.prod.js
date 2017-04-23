@@ -7,12 +7,12 @@ module.exports = {
     './client/reduxstagram'
   ],
   output: {
-    path: path.join(__dirname, 'docs'),
+    path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/docs/'
+    publicPath: '/build/'
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': "'production'"
@@ -26,18 +26,19 @@ module.exports = {
   ],
   module: {
     loaders: [
-    // js
-    {
-      test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, 'client')
-    },
-    // CSS
-    {
-      test: /\.styl$/,
-      include: path.join(__dirname, 'client'),
-      loader: 'style-loader!css-loader!stylus-loader'
-    }
+      // js
+      {
+        test: /\.js$/,
+        loaders: ['babel-loader'],
+        exclude: /node_modules/,
+        include: path.join(__dirname, 'client')
+      },
+      // CSS
+      {
+        test: /\.styl$/,
+        include: path.join(__dirname, 'client'),
+        loader: 'style-loader!css-loader!stylus-loader'
+      }
     ]
   }
 };
