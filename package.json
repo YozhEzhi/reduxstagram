@@ -2,9 +2,7 @@
   "name": "Reduxstagram",
   "version": "1.0.0",
   "scripts": {
-    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
-    "build": "npm run clean && npm run build:webpack",
-    "clean": "rimraf dist",
+    "build": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "start": "node devServer.js",
     "tunnel": "browser-sync start --proxy localhost:7770 --tunnel wesbos"
   },
@@ -37,7 +35,6 @@
     "react-transform-hmr": "^1.0.4",
     "redbox-react": "^1.2.3",
     "redux": "^3.5.2",
-    "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.0.0",

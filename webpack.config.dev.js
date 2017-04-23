@@ -8,9 +8,9 @@ module.exports = {
     './client/reduxstagram'
   ],
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'docs'),
     filename: 'bundle.js',
-    publicPath: '/build/'
+    publicPath: '/docs/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
