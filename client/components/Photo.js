@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 function Photo(props) {
-  const { comments, i, increment, post } = props;
+  const { comments, index, increment, post } = props;
 
   return (
     <figure className="grid-figure">
@@ -12,7 +12,11 @@ function Photo(props) {
           <img src={post.display_src} alt={post.caption} className="grid-photo" />
         </Link>
 
-        <CSSTransitionGroup transitionName="like" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+        <CSSTransitionGroup
+          transitionName="like"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={500}
+        >
           <span key={post.likes} className="likes-heart">{post.likes}</span>
         </CSSTransitionGroup>
       </div>
@@ -20,11 +24,11 @@ function Photo(props) {
       <figcaption>
         <p>{post.caption}</p>
         <div className="control-buttons">
-          <button onClick={increment.bind(null, i)} className="likes">&hearts; {post.likes}</button>
+          <button onClick={increment.bind(null, index)} className="likes">&hearts; {post.likes}</button>
           <Link className="button" to={`/view/${post.code}`}>
             <span className="comment-count">
               <span className="speech-bubble"></span>{' '}
-              {comments[post.code] ? comments[post.code].length : 0 }
+              {comments ? comments.length : 0 }
             </span>
           </Link>
         </div>

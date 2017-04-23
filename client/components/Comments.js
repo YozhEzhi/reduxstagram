@@ -40,7 +40,7 @@ class Comments extends React.Component {
   render() {
     return (
       <div className="comments">
-        {this.props.postComments.map(this.renderComment)}
+        {this.props.comments.map(this.renderComment)}
 
         <form ref="commentForm" className="comment-form" onSubmit={this.handleSubmit}>
           <input type="text" ref="author" placeholder="author"/>

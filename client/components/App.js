@@ -1,20 +1,16 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React from 'react';
+import { Link } from 'react-router';
 
-import * as actions from '../actions';
-import Main from './Main';
+function App(props) {
+  return (
+    <div>
+      <h1>
+        <Link to="/">Reduxstagram</Link>
+      </h1>
 
-function mapStateToProps(state) {
-  return {
-    posts: state.posts,
-    comments: state.comments,
-  }
-}
-
-function mapDispachToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
-}
-
-const App = connect(mapStateToProps, mapDispachToProps)(Main);
+      {props.children}
+    </div>
+  );
+};
 
 export default App;

@@ -1,11 +1,13 @@
 import React from 'react';
 
-import Photo from './Photo';
+import PhotoContainer from '../containers/PhotoContainer';
 
 function PhotoGrid(props) {
+  const posts = props.posts;
+
   return (
     <div className="photo-grid">
-      {props.posts.map((post, i) => <Photo {...props} key={i} i={i} post={post} />)}
+      {posts.map((post, i) => <PhotoContainer key={i} post={post} />)}
     </div>
   );
 }
