@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as actions from '../actions';
+import { likePost } from '../actions';
 import Photo from '../components/Photo';
 
 function getCurrentPhotoComments(state, code) {
@@ -20,7 +20,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
+  return bindActionCreators({ likePost }, dispatch);
 }
 
 const PhotoContainer = connect(mapStateToProps, mapDispatchToProps)(Photo);

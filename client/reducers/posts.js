@@ -1,8 +1,8 @@
-import { INCREMENT_LIKES } from '../constants';
+import { LIKE_POST } from '../constants';
 
 function posts(state = [], action) {
   switch(action.type) {
-    case INCREMENT_LIKES:
+    case LIKE_POST:
       const i = action.index;
 
       return [

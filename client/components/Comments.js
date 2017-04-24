@@ -1,4 +1,5 @@
 import React from 'react';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Comments extends React.Component {
   constructor(props) {
@@ -13,18 +14,27 @@ class Comments extends React.Component {
 
   renderComment(comment, i) {
     return (
-      <div className="comment" key={i}>
-        <p>
-          <strong>{comment.user}</strong>
-          {comment.text}
-          <button
-            className="remove-comment"
-            onClick={this.removeComment.bind(null, this.postId, i)}
-          >
-            &times;
-          </button>
-        </p>
-      </div>
+      <CSSTransitionGroup
+        transitionName="comments"
+        transitionAppear={true}
+        transitionAppearTimeout={1000}
+        transitionEnter={false}
+        transitionLeave={false}
+        key={`comment-${i}`}
+      >
+        <div className="comment">
+          <p>
+            <strong>{comment.user}</strong>
+            {comment.text}
+            <button
+              className="remove-comment"
+              onClick={this.removeComment.bind(null, this.postId, i)}
+            >
+              &times;
+            </button>
+          </p>
+        </div>
+      </CSSTransitionGroup>
     )
   }
 
@@ -33,7 +43,7 @@ class Comments extends React.Component {
     const author = this.refs.author.value;
     const comment = this.refs.comment.value;
 
-    this.props.addComment(this.props.params.postId, author, comment);
+    this.props.addComment(this.postId, author, comment);
     this.refs.commentForm.reset();
   }
 

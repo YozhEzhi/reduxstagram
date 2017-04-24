@@ -1,13 +1,13 @@
 import {
   ADD_COMMENT,
-  INCREMENT_LIKES,
+  LIKE_POST,
   REMOVE_COMMENT,
 } from '../constants';
 
-// increment
-export function increment(index) {
+// like
+export function likePost(index) {
   return {
-    type: INCREMENT_LIKES,
+    type: LIKE_POST,
     index,
   }
 }
