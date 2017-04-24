@@ -2,28 +2,29 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'source-map',
   entry: [
     './client/reduxstagram'
   ],
+
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
     publicPath: '/build/'
   },
+
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': "'production'"
-      }
+      'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
-        warnings: false
-      }
+        warnings: false,
+      },
+      sourceMap: false,
     })
   ],
+
   module: {
     loaders: [
       // js
