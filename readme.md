@@ -1,6 +1,6 @@
 ## Running
 
-First `npm install` to grab all the necessary dependencies.
+First `npm i` to grab all the necessary dependencies.
 
 Then run `npm start` and open <localhost:8080> in your browser.
 

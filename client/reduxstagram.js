@@ -14,14 +14,20 @@ import PhotoGridContainer from './containers/PhotoGridContainer';
 // Import react store
 import store, { history } from './store/index';
 
+// const router = (
+//   <Provider store={store}>
+//     <Router history={history}>
+//       <Route path="/" component={App}>
+//         <IndexRoute component={PhotoGridContainer}></IndexRoute>
+//         <Route path="/view/:postId" component={SingleContainer}></Route>
+//       </Route>
+//     </Router>
+//   </Provider>
+// )
+
 const router = (
   <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={App}>
-        <IndexRoute component={PhotoGridContainer}></IndexRoute>
-        <Route path="/view/:postId" component={SingleContainer}></Route>
-      </Route>
-    </Router>
+    <App />
   </Provider>
 )
 
